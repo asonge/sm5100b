@@ -120,7 +120,7 @@ void SM5100B::read_line() {
   while(bytes_read==0) {
     bytes_read = serial.readBytesUntil('\n', buffer, _SS_MAX_RX_BUFF);
     while(bytes_read && isSpace(buffer[bytes_read-1])) bytes_read--;
-    if(bytes_read < 90)
+    if(bytes_read < _SS_MAX_RX_BUFF)
       buffer[bytes_read] = 0;
   }
 }
